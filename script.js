@@ -12,75 +12,58 @@ function convertToRoman(num) {
 //your code here
 	let ans = "";
   	while(num!==0){
-		let digit = num.toString().charAt(0);
 		if(num>=1000){
-			num -= 1000;
-			ans += "M";
-		}
-		else if(num>=500 && num<1000){
-			let newNum = digit*100;
-			if(newNum===900){
-				num -= 900;
-				ans += "CM";
-			}
-			else{
-				num -= 500;
-				ans += "D";
-			}
-		}
-		else if(num>=100 && num<500){
-			let newNum = digit*100;
-			if(newNum===400){
-				num -= 400;
-				ans += "CD";
-			}
-			else{
-				num -= 100;
-				ans += "C";
-			}
-		}
-		else if(num>=50 && num<100){
-			let newNum = digit*10;
-			if(newNum===90){
-				num -= 90;
-				ans += "XC";
-			}
-			else{
-				num -= 50;
-				ans += "L";
-			}
-		}
-		else if(num>=10 && num<50){
-			let newNum = digit*10;
-			if(newNum===40){
-				num -= 40;
-				ans += "XL";
-			}
-			else{
-				num -= 10;
-				ans += "X";
-			}
-		}
-		else if(num>=5 && num<10){
-			if(digit===9){
-				num -= 9;
-				ans += "IX";
-			}
-			else{
-				num -= 5;
-				ans += "V";
-			}
-		}
-		else if(num>=1 && num<5){
-			if(digit===4){
-				num -= 4;
-				ans += "IV";
-			}
-			else{
-				num -= 1;
-				ans += "I";
-			}
-		}
+         result += "M";
+         num -= 1000;
+      }else if(num>=500){
+         if(num>=900){
+            result += "CM";
+            num -= 900;
+         }else{
+            result += "D";
+            num -= 500;
+         }
+         }else if(num>=100){
+            if(num>=400){
+               result += "CD";
+               num -= 400;
+            }else{
+               result += "C";
+               num -= 100;
+            }
+         }else if(num>=50){
+            if(num>=90){
+               result += "XC";
+               num -= 90;
+            }else{
+               result += "L";
+               num -= 50;
+            }
+         }else if(num>=10){
+            if(num>=40){
+               result += "XL";
+               num -= 40;
+            }else{
+               result += "X";
+               num -= 10;
+            }
+         }else if(num>=5){
+            if(num>=9){
+               result += "IX";
+               num -= 9;
+           }else{
+               result += "V";
+               num -= 5;
+            }
+         }else{
+            if(num>=4){
+               result += "IV";
+               num -= 4;
+         }else{
+            result += "I";
+            num -= 1;
+         }
+      }
 	}
 
 	return ans;
